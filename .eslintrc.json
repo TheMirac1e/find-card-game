@@ -1,0 +1,47 @@
+{
+  "root": true,
+  "ignorePatterns": [
+    "projects/**/*"
+  ],
+  "plugins": [
+    "@typescript-eslint",
+    "prettier",
+    "simple-import-sort",
+    "import"
+  ],
+  "overrides": [
+    {
+      "files": [
+        "*.ts"
+      ],
+      "parserOptions": {"project": ["tsconfig.json"], "createDefaultProgram": true},
+      "extends": ["eslint:recommended", "plugin:@typescript-eslint/eslint-recommended", "plugin:@typescript-eslint/recommended"],
+      "rules": {
+//        "comma-dangle": ["error", "always-multiline"],
+//        "comma-style": "error",
+        "complexity": "error",
+        "simple-import-sort/exports": "error",
+        "simple-import-sort/imports": [
+          "error",
+          {"groups": [["^\\u0000"], ["^@?(?!app)\\w"], ["^@app?\\w"], ["^[^.]"], ["^\\."]]}
+        ],
+        "sort-imports": "off",
+        "import/no-unresolved": "off",
+        "import/first": "error",
+        "import/newline-after-import": "error",
+        "import/no-duplicates": "error",
+        "no-throw-literal": "error",
+        "no-new-wrappers": "error",
+        "no-shadow": "off",
+        "no-invalid-this": "off",
+        "@typescript-eslint/dot-notation": "off",
+        "@typescript-eslint/quotes": ["error", "single", {"avoidEscape": true}],
+        "@typescript-eslint/func-call-spacing": ["error", "never"],
+        "@typescript-eslint/no-shadow": "error",
+        "@typescript-eslint/consistent-type-definitions": "error",
+        "@typescript-eslint/no-invalid-this": ["warn"],
+        "@typescript-eslint/explicit-function-return-type": ["error"]
+      }
+    }
+  ]
+}
