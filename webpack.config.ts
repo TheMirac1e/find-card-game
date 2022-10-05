@@ -3,6 +3,7 @@ import CopyWebpackPlugin from 'copy-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import  MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import * as path from 'path';
+import StylelintPlugin from 'stylelint-webpack-plugin';
 import { Configuration } from 'webpack';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
