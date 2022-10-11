@@ -1,1 +1,1 @@
-Hello! It`s my ts starter for work on upwork.
+Hello! It`s my ts starter for work.

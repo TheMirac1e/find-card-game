@@ -1,82 +1,81 @@
-import { CleanWebpackPlugin } from 'clean-webpack-plugin';
+import {CleanWebpackPlugin} from 'clean-webpack-plugin';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-import  MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import * as path from 'path';
-import StylelintPlugin from 'stylelint-webpack-plugin';
-import { Configuration } from 'webpack';
+import {Configuration} from 'webpack';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const config: Configuration & Record<string, any> = {
-  mode: 'development',
-  entry: './src/js/index.ts',
-  output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle-[hash].js',
-  },
-  target: ['web', 'es2015'],
-  resolve: {
-    extensions: ['.ts', '.tsx', '.js'],
-  },
-  devServer: {
-    static: {
-      directory: path.join(__dirname, 'public'),
+    mode: 'development',
+    entry: './src/js/index.ts',
+    output: {
+        path: path.resolve(__dirname, 'dist'),
+        filename: 'bundle-[hash].js',
     },
-    liveReload: true,
-    compress: true,
-    port: 3000,
-    hot: false,
-  },
-  module: {
-    rules: [
-      {
-        test: /\.tsx?$/,
-        loader: 'ts-loader',
-      },
-      {
-        test: /\.(sa|sc|c)ss$/,
-        use: [
-          {
-            loader: MiniCssExtractPlugin.loader,
-            options: {},
-          },
-          {
-            loader: 'css-loader',
-            options: {
-              url: false,
-            },
-          },
-          'postcss-loader',
-          'sass-loader',
-        ],
-      },
-   ],
-  },
-  plugins: [
-    new CleanWebpackPlugin(),
-    new CopyWebpackPlugin({
-      patterns: [
-        {
-          from: '**/*',
-          context: path.resolve(__dirname, 'src', 'images'),
-          to: './images',
+    target: ['web', 'es2015'],
+    resolve: {
+        extensions: ['.ts', '.tsx', '.js'],
+    },
+    devServer: {
+        static: {
+            directory: path.join(__dirname, 'public'),
         },
-      ],
-    }),
-    new HtmlWebpackPlugin({
-      template: 'src/index.html',
-      filename: 'index.html',
-      minify: {
-        collapseWhitespace: true,
-        removeComments: true,
-        removeRedundantAttributes: true,
-        useShortDoctype: true,
-      },
-    }),
-    new MiniCssExtractPlugin({
-      filename: 'style-[hash].css',
-    }),
-  ],
+        liveReload: true,
+        compress: true,
+        port: 3000,
+        hot: false,
+    },
+    module: {
+        rules: [
+            {
+                test: /\.tsx?$/,
+                loader: 'ts-loader',
+            },
+            {
+                test: /\.(sa|sc|c)ss$/,
+                use: [
+                    {
+                        loader: MiniCssExtractPlugin.loader,
+                        options: {},
+                    },
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            url: false,
+                        },
+                    },
+                    'postcss-loader',
+                    'sass-loader',
+                ],
+            },
+        ],
+    },
+    plugins: [
+        new CleanWebpackPlugin(),
+        new CopyWebpackPlugin({
+            patterns: [
+                {
+                    from: '**/*',
+                    context: path.resolve(__dirname, 'src', 'images'),
+                    to: './images',
+                },
+            ],
+        }),
+        new HtmlWebpackPlugin({
+            template: 'src/index.html',
+            filename: 'index.html',
+            minify: {
+                collapseWhitespace: true,
+                removeComments: true,
+                removeRedundantAttributes: true,
+                useShortDoctype: true,
+            },
+        }),
+        new MiniCssExtractPlugin({
+            filename: 'style-[hash].css',
+        }),
+    ],
 };
 
 export default config;
