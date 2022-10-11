@@ -1,0 +1,30 @@
+.header {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+    position: absolute;
+    width: 100%;
+
+    &__inner {
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+        margin: 0 auto;
+        max-width: 1200px;
+        min-height: 70px;
+        padding: 0 20px;
+    }
+
+    &__logo {
+        align-items: center;
+        display: flex;
+    }
+
+    &__list {
+        align-items: center;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    &__listitem {
+        margin: 0 20px;
+    }
+}
