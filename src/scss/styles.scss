@@ -1,3 +1,25 @@
+// config styles
+@import "utils/config";
+@import "utils/mixins";
 @import "reset";
+
+// helpers styles
+@import "utils/container";
+
+// header styles
 @import "header";
+
+// footer styles
+@import "footer";
+
+// main
 @import "main";
+
+// infos styles
+@import "info";
+
+// talk block
+@import "components/talk";
+
+// work block
+@import "components/work";

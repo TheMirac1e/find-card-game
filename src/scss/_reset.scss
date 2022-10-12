@@ -33,3 +33,7 @@ img {
     height: auto;
     max-width: 100%;
 }
+
+a:not([class]) {
+    text-decoration: none;
+}

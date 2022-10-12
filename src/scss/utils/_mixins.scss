@@ -1,0 +1,6 @@
+@mixin on-event {
+    &:hover,
+    &:focus {
+        @content;
+    }
+}

@@ -1,0 +1,5 @@
+.talk {
+    &__container {
+        @extend %container;
+    }
+}

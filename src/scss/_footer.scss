@@ -1,0 +1,14 @@
+.footer {
+    background-color: var(--color-primary-90);
+    color: $color-white;
+    padding: 30px 0;
+
+    &__wrapper {
+        @extend %container;
+    }
+
+    &__bottom {
+        display: flex;
+        justify-content: flex-end;
+    }
+}
