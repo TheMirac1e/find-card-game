@@ -23,9 +23,15 @@ class GameCards {
     }
 
     private init(): void {
-        this.elements.forEach(item => {
-            console.log(item);
-        })
+        this.toggleClass()
+    }
+
+    private toggleClass(): void {
+       this.elements.forEach(item => {
+           item.addEventListener('click', () => {
+               item.classList.add('is-active');
+           })
+       })
     }
 }
 

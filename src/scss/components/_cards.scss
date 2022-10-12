@@ -5,35 +5,51 @@
 
     &__wrapper {
         display: grid;
-        grid-template-columns: 150px 150px 150px 150px;
-        grid-template-rows:150px 150px 150px 150px;
-        justify-content: center;
         gap: 20px;
+        grid-template-columns: repeat(4, 150px);
+        grid-template-rows: repeat(3, 200px);
+        justify-content: center;
+        perspective: 1000px;
     }
 
     &__item {
-        color: $color-white;
+        align-items: center;
         border-radius: 4px;
+        color: $color-white;
+        display: flex;
+        justify-content: center;
+        position: relative;
         transform: scale(1);
+        transform-style: preserve-3d;
+        transition: transform 0.5s;
 
         &:active {
-            transform: scale(0.97);
+            transform: scale(0.95);
             transition: transform 0.2s;
+        }
+
+        &.is-active {
+            transform: rotateY(180deg);
         }
     }
 
     &__front,
     &__back {
         @include size(100%, 100%);
+        @include flex-center;
+        backface-visibility: hidden;
         border-radius: 5px;
+        padding: 10px;
         position: absolute;
     }
 
     &__front {
         background-color: var(--color-secondary);
+        transform: rotateY(-180deg);
     }
 
     &__back {
         background-color: var(--color-primary-90);
+        font-size: 5rem;
     }
 }

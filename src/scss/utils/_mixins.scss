@@ -6,6 +6,12 @@
 }
 
 @mixin size($width, $height) {
-    width: $width;
     height: $height;
+    width: $width;
+}
+
+@mixin flex-center {
+    align-items: center;
+    display: flex;
+    justify-content: center;
 }
