@@ -1,0 +1,39 @@
+.cards {
+    &__container {
+        @extend %container;
+    }
+
+    &__wrapper {
+        display: grid;
+        grid-template-columns: 150px 150px 150px 150px;
+        grid-template-rows:150px 150px 150px 150px;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    &__item {
+        color: $color-white;
+        border-radius: 4px;
+        transform: scale(1);
+
+        &:active {
+            transform: scale(0.97);
+            transition: transform 0.2s;
+        }
+    }
+
+    &__front,
+    &__back {
+        @include size(100%, 100%);
+        border-radius: 5px;
+        position: absolute;
+    }
+
+    &__front {
+        background-color: var(--color-secondary);
+    }
+
+    &__back {
+        background-color: var(--color-primary-90);
+    }
+}
